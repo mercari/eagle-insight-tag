@@ -1,5 +1,5 @@
 homepage: "https://about.mercari.com/"
 documentation: "https://github.com/mercari/eagle-insight-tag/blob/master/README.md"
 versions:
-  - sha: 5f02a788b90ae804f86b04aa24af8937e567874a
+  - sha: 66b1fb9ad31554deeef0bbd28925dcdee64fe36d
     changeNotes: Initial release.
