@@ -1,5 +1,7 @@
 homepage: "https://about.mercari.com/"
 documentation: "https://github.com/mercari/eagle-insight-tag/blob/master/README.md"
 versions:
+  - sha: e136764f053473a8c50da26b394d5a5f05c982e9
+    changeNotes: Add analytics type variable and run command.
   - sha: be756d104d300e7c2524639bb479e740fbc58548
     changeNotes: Initial release.
