@@ -34,8 +34,15 @@ ___TEMPLATE_PARAMETERS___
     "name": "scriptAddress",
     "displayName": "SCRIPT_ADDRESS",
     "simpleValueType": true,
-    "defaultValue": "https://securepub.eagle-insight.com/eisatag/js/conversion.js",
+    "defaultValue": "https://tag.eisa.mercari.com/eagletag.js",
     "help": "Specifies the URL of the Eagle Insight Tracking Library script.\nPlease set with the URL you told us. (If not provided, use the default)"
+  },
+  {
+    "type": "TEXT",
+    "name": "accountID",
+    "displayName": "ACCOUNT_ID",
+    "simpleValueType": true,
+    "help": "Specify the ad account ID.Please set the ID you told us."
   },
   {
     "type": "TEXT",
@@ -44,13 +51,6 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "help": "Specify the type of Analytics you are using.\nFor details, refer to the SDK installation guide.",
     "canBeEmptyString": true
-  },
-  {
-    "type": "TEXT",
-    "name": "advertiser",
-    "displayName": "ADVERTISER",
-    "simpleValueType": true,
-    "help": "Specify the advertiser name.\nPlease set the name you told us."
   },
   {
     "type": "TEXT",
@@ -74,8 +74,8 @@ log('mercari ad tracking data : ', data);
 const eagletag = copyFromWindow('eagletag') || {cmd: []};
 eagletag.cmd.push(function() {
   const egl = copyFromWindow('eagletag');
+  egl.setAccountID(data.accountID);
   egl.setAnalyticsType(data.analyticsType);
-  egl.setAdvertiserID(data.advertiser);
   egl.writeTrackingID(data.cookieDomain);
 });
 eagletag.cmd.push(function() {
@@ -122,7 +122,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://*.eagle-insight.com/"
+                "string": "https://*.eisa.mercari.com/"
               }
             ]
           }
@@ -205,9 +205,9 @@ scenarios:
   code: |-
     const mockData = {
       // Mocked field values
-      scriptAddress: 'https://securepub.eagle-insight.com/eisatag/js/conversion.js',
+      scriptAddress: 'https://tag.eisa.mercari.com/eagletag.js',
+      accountID: 'sample-dc924c9e-d2ea-42aa',
       analyticsType: '',
-      advertiser: 'test',
       cookieDomain: 'sample-domain',
     };
 
@@ -226,9 +226,9 @@ scenarios:
 
     const mockData = {
       // Mocked field values
-      scriptAddress: 'https://securepub.eagle-insight.com/eisatag/js/conversion.js',
+      scriptAddress: 'https://tag.eisa.mercari.com/eagletag.js',
+      accountID: 'sample-dc924c9e-d2ea-42aa',
       analyticsType: '',
-      advertiser: 'test',
       cookieDomain: 'sample-domain',
     };
 
